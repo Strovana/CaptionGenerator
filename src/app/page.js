@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <PageHeaders 
         h1Text={'Add Ultimate Captions to your Videos'}
-        h2Text={'Video daal aur dekh kamaal'}
+        h2Text={'Upload your Video and see the Magic'}
       />
       <div className="text-center">
         <UploadForm />

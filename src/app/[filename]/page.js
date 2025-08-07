@@ -53,13 +53,23 @@ function getTranscription() {
 
   
 
-  if (isTranscribing) {
-    return <div>Transcribing your video...</div>;
-  }
+   if (isTranscribing) {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen text-center">
+      <div className="w-12 h-12 border-4 border-[#9747FF] border-t-white rounded-full animate-spin mb-4"></div>
+      <div className="text-lg font-medium text-gray-700">Transcribing your video...</div>
+    </div>
+  );
+}
 
-  if (isFetchingInfo) {
-    return <div>Fetching information...</div>;
-  }
+if (isFetchingInfo) {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen text-center">
+      <div className="w-12 h-12 border-4 border-[#9747FF] border-t-white rounded-full animate-spin mb-4"></div>
+      <div className="text-lg font-medium text-gray-700">Fetching information...</div>
+    </div>
+  );
+}
 
   return (
     <div>

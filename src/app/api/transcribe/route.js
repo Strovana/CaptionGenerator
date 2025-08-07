@@ -6,8 +6,8 @@ function getClient(){
     return new TranscribeClient({
         region: 'ap-south-1',
         credentials:{
-            accessKeyId:process.env.AWS_ACCESS_KEY,
-            secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY,
+            accessKeyId:process.env.MYAWS_ACCESS_KEY,
+            secretAccessKey:process.env.MYAWS_SECRET_ACCESS_KEY,
         },
 
     });
@@ -18,11 +18,11 @@ function createTranscription(filename){
     return new StartTranscriptionJobCommand({
         //will also get updates for jobs 
         TranscriptionJobName:filename,
-        OutputBucketName:process.env.BUCKET_NAME,
+        OutputBucketName:process.env.BUCKET_NAMEMY,
         OutputKey:filename+'.transcription',
         IdentifyLanguage:true,
         Media:{
-            MediaFileUri:'s3://'+process.env.BUCKET_NAME+'/'+filename,
+            MediaFileUri:'s3://'+process.env.BUCKET_NAMEMY+'/'+filename,
         }
     });
 }
@@ -67,14 +67,14 @@ async function getTranscriptionFile(filename){
     const s3client = new S3Client({
             region: 'ap-south-1',
             credentials:{
-                accessKeyId:process.env.AWS_ACCESS_KEY,
-                secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY,
+                accessKeyId:process.env.MYAWS_ACCESS_KEY,
+                secretAccessKey:process.env.MYAWS_SECRET_ACCESS_KEY,
     
             },
     });
 
     const getObjectCommand = new GetObjectCommand({
-        Bucket:process.env.BUCKET_NAME,
+        Bucket:process.env.BUCKET_NAMEMY,
         Key:transcriptionFile,
     });
 
