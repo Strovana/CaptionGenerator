@@ -92,7 +92,7 @@ export default function ResultVideo({ filename, TranscriptionItem }) {
       "-preset",
       "ultrafast",
       "-vf",
-      `subtitles=subs.srt:fontsdir=/tmp:force_style='FontName=Roboto Bold,FontSize=30,PrimaryColour=${toFFmpegColour(
+      `subtitles=subs.srt:fontsdir=/tmp:force_style='FontName=Roboto Bold,FontSize=20,PrimaryColour=${toFFmpegColour(
         primarycolour
       )},OutlineColour=${toFFmpegColour(OutlineColour)},MarginV=60'`,
       "output.mp4",
